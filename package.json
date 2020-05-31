@@ -1,0 +1,42 @@
+{
+  "name": "crew-journal-ui",
+  "version": "0.0.1",
+  "description": "A space-based time tracker.",
+  "productName": "Crew Journal",
+  "cordovaId": "org.cordova.quasar.app",
+  "capacitorId": "",
+  "author": "Alex House <ahouse101@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "run-p start-api qdev",
+    "start-api": "ts-node ./backend/start-api-server.ts",
+    "qdev": "quasar dev",
+    "build": "quasar build",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.0.0",
+    "@vue/composition-api": "^0.5.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "quasar": "^1.9.5",
+    "sqlite3": "^4.2.0",
+    "ts-node": "^8.10.2"
+  },
+  "devDependencies": {
+    "@quasar/app": "^1.6.2",
+    "@types/node": "^10.17.15",
+    "npm-run-all": "^4.1.5"
+  },
+  "engines": {
+    "node": ">= 10.18.1",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  },
+  "browserslist": [
+    "last 1 version, not dead, ie >= 11"
+  ]
+}

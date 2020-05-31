@@ -1,0 +1,25 @@
+// app global css in SCSS form
+
+h1, h2, h3 {
+	margin: 0;
+}
+h4, h5, h6 {
+	margin: 0;
+}
+
+.bg-productivity { background-color: $productivity; }
+.bg-eating { background-color: $eating; }
+.bg-exercise { background-color: $exercise; }
+.bg-sleep { background-color: $sleep; }
+.bg-leisure { background-color: $leisure; }
+.bg-social { background-color: $social; }
+
+.text-leisure { color: #000000; }
+
+
+// .bg-productivity { background: linear-gradient(to right, #1d1d1d, #1d1d1d 50%, $productivity); }
+// .bg-eating { background: linear-gradient(to right, #1d1d1d, #1d1d1d 50%, $eating); }
+// .bg-exercise { background: linear-gradient(to right, #1d1d1d, #1d1d1d 50%, $exercise); }
+// .bg-sleep { background: linear-gradient(to right, #1d1d1d, #1d1d1d 50%, $sleep); }
+// .bg-leisure { background: linear-gradient(to right, #1d1d1d, #1d1d1d 50%, $leisure); }
+// .bg-social { background: linear-gradient(to right, #1d1d1d, #1d1d1d 50%, $social); }
