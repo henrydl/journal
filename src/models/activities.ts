@@ -1,6 +1,8 @@
 export class Activity {
-	constructor(readonly category: Category, label: string = '', startTime: Date = new Date()) {
-
+	startTime: Date;
+	
+	constructor(readonly category: Category, startTime: Date = null, label: string = '') {
+		this.startTime = startTime || new Date();
 	}
 }
 

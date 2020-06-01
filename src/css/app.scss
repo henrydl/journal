@@ -5,10 +5,15 @@ h1, h2, h3 {
 }
 h4, h5, h6 {
 	margin: 0;
+	font-family: nasalization;
 }
 
 body {
 	text-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.q-btn {
+	font-family: nasalization;
 }
 
 .bg-productivity { background-color: $productivity; }
