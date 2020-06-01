@@ -2,11 +2,9 @@
  * Module dependencies.
  */
 
-var cors = require('cors');
 var app = require('./api');
 var debug = require('debug')('journal:server');
 var http = require('http');
-app.use(cors());
 
 /**
  * Get port from environment and store in Express.

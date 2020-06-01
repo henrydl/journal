@@ -1,8 +1,8 @@
 {
-  "name": "crew-journal-ui",
+  "name": "time-control-center",
   "version": "0.0.1",
-  "description": "A space-based time tracker.",
-  "productName": "Crew Journal",
+  "description": "A space flight planner for isolated terrestrials.",
+  "productName": "Time Control Center",
   "cordovaId": "org.cordova.quasar.app",
   "capacitorId": "",
   "author": "Alex House <ahouse101@gmail.com>",
