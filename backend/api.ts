@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cors = require('cors');
 var logger = require('morgan');
 
 var activityRouter = require('./routes/activities');
@@ -10,7 +11,7 @@ var activityRouter = require('./routes/activities');
 var app = express();
 
 app.use(bodyParser.json());
-
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

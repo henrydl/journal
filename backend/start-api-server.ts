@@ -2,10 +2,10 @@
  * Module dependencies.
  */
 
+var cors = require('cors');
 var app = require('./api');
 var debug = require('debug')('journal:server');
 var http = require('http');
-var cors = require('cors');
 app.use(cors());
 
 /**
