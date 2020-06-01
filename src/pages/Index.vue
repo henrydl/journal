@@ -38,6 +38,7 @@
 import Vue from 'vue';
 
 import { Activity, Category, Categories } from '../models/activities';
+import { putActivity, getScheduleUpToNow, getCurrentActivity} from '../persistence/journal';
 
 export default Vue.extend({
   name: 'TrackerPage',
@@ -50,6 +51,9 @@ export default Vue.extend({
   },
   methods: {
     chooseCategory: function (category: Category, event: MouseEvent) {
+      getCurrentActivity();
+      putActivity("exercise");
+      getCurrentActivity();
       console.log(this);
       this.currentActivity = new Activity(category);
     }
