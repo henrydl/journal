@@ -6,7 +6,7 @@
         <div class='text-subtitle1'>Active since: </div>
       </q-card-section>
       <q-card-section>
-        <p>Hey, this is a message just for you, about whatever you're doing!</p>
+        <p>{{ messageForYou }}</p>
       </q-card-section>
     </q-card>
     <h5 v-if='currentActivity' class='text-center'>Switch to:</h5>
@@ -43,10 +43,19 @@ import { putActivity, getScheduleUpToNow, getCurrentActivity} from '../persisten
 export default Vue.extend({
   name: 'TrackerPage',
   components: {  },
-  data() : { currentActivity: Activity | null, Categories: any} {
+  created() {
+    const messageCycleInMS = 5000;
+    setInterval(() => {
+      const index = rand(0, this.currentActivity.quotes.length);
+      if (this.currentActivity)
+        this.messageForYou = this.currentActivity.quotes
+    }, messageCycleInMS);
+  },
+  data() : { currentActivity: Activity | null, Categories: any, messageForYou: string} {
     return {
       currentActivity: null,
-      Categories
+      Categories,
+      messageForYou: ""
     };
   },
   methods: {
@@ -59,6 +68,10 @@ export default Vue.extend({
     }
   }
 });
+
+function rand(min, max) {
+  return Math.random() * (max - min) + min;
+}
 </script>
 
 <style lang="scss">

@@ -5,10 +5,11 @@
         <!-- <q-btn flat dense round icon="menu" aria-label="Menu" @click="leftDrawerOpen = !leftDrawerOpen" /> -->
 
         <q-toolbar-title>
-          Crew Journal
+          Time Control Center
         </q-toolbar-title>
 
         <!-- <div>Quasar v{{ $q.version }}</div> -->
+        <div>A space flight planner for isolated terrestrials.</div>
       </q-toolbar>
     </q-header>
 
