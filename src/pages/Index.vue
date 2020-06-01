@@ -3,10 +3,10 @@
     <q-card v-if='currentActivity !== null' class='q-pa-md current-activity' :class='"bg-" + currentActivity.category.color + " text-" + currentActivity.category.color'>
       <q-card-section>
         <h4>{{ currentActivity.category.name }}</h4>
-        <div class='text-subtitle1'>Active since: </div>
+        <div class='text-subtitle1'>You've been doing this since {{ this.activeSince }}.</div>
       </q-card-section>
       <q-card-section>
-        <p>{{ messageForYou }}</p>
+        <p class='text-body1'>{{ messageForYou }}</p>
       </q-card-section>
     </q-card>
     <h5 v-if='currentActivity' class='text-center'>Switch to:</h5>
@@ -36,6 +36,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import moment from 'moment';
 
 import { Activity, Category, Categories } from '../models/activities';
 import { putActivity, getScheduleUpToNow, getCurrentActivity} from '../persistence/journal';
@@ -44,27 +45,41 @@ export default Vue.extend({
   name: 'TrackerPage',
   components: {  },
   created() {
-    const messageCycleInMS = 5000;
-    setInterval(() => {
-      const index = rand(0, this.currentActivity.quotes.length);
-      if (this.currentActivity)
-        this.messageForYou = this.currentActivity.quotes
-    }, messageCycleInMS);
+    const messageCycleInMS = 10000;
+    setInterval(this.randomQuote, messageCycleInMS);
+    setInterval(this.updateActiveSince, 100);
   },
-  data() : { currentActivity: Activity | null, Categories: any, messageForYou: string} {
+  data() : { currentActivity: Activity | null, Categories: any, messageForYou: string, activeSince: string} {
     return {
       currentActivity: null,
       Categories,
-      messageForYou: ""
+      messageForYou: "",
+      activeSince: ""
     };
   },
+  computed: {
+    currentActivityTime() {
+      
+    },
+  },
   methods: {
-    chooseCategory: function (category: Category, event: MouseEvent) {
+    chooseCategory(category: Category, event: MouseEvent) {
       getCurrentActivity();
       putActivity("exercise");
       getCurrentActivity();
-      console.log(this);
       this.currentActivity = new Activity(category);
+      this.randomQuote();
+    },
+    randomQuote() {
+      if (this.currentActivity) {
+        const quotes = this.currentActivity.category.quotes;
+        const index = Math.floor(rand(0, quotes.length));
+        this.messageForYou = quotes[index];
+      }
+    },
+    updateActiveSince() {
+      if (!this.currentActivity) return;
+      this.activeSince = moment(this.currentActivity.startTime).format('HH:mm') + ', ' + moment.duration(moment().diff(this.currentActivity.startTime)).humanize(true, { s: 5 });
     }
   }
 });
