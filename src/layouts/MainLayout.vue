@@ -9,7 +9,7 @@
         </q-toolbar-title>
 
         <!-- <div>Quasar v{{ $q.version }}</div> -->
-        <div>A space flight planner for isolated terrestrials.</div>
+        <div class='text-caption'>A space flight planner for isolated terrestrials.</div>
       </q-toolbar>
     </q-header>
 
