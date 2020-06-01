@@ -1,6 +1,6 @@
 <template>
   <q-page class="q-pa-lg col q-gutter-md">
-    <q-card v-if='currentActivity !== null' class='q-pa-md'>
+    <q-card v-if='currentActivity !== null' class='q-pa-md current-activity' :class='"bg-" + currentActivity.category.color + " text-" + currentActivity.category.color'>
       <q-card-section>
         <h4>{{ currentActivity.category.name }}</h4>
         <div class='text-subtitle1'>Active since: </div>
@@ -19,7 +19,7 @@
         v-for='category in Categories'
         :key="category.name"
         :category='category'
-        class='q-ma-sm' 
+        class='q-ma-sm category-btn' 
         :color='category.name.toLowerCase()' 
         :text-color='category.name.toLowerCase()'
         :icon='category.icon'
@@ -60,3 +60,13 @@ export default Vue.extend({
   }
 });
 </script>
+
+<style lang="scss">
+  .current-activity {
+    box-shadow: 0 0 100px 0 rgba(15, 15, 15, 0.5) inset;
+  }
+
+  .category-btn {
+    box-shadow: 0 0 10px 0 rgba(15, 15, 15, 0.4) inset;
+  }
+</style>

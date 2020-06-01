@@ -7,14 +7,19 @@ h4, h5, h6 {
 	margin: 0;
 }
 
+body {
+	text-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
 .bg-productivity { background-color: $productivity; }
 .bg-eating { background-color: $eating; }
 .bg-exercise { background-color: $exercise; }
 .bg-sleep { background-color: $sleep; }
-.bg-leisure { background-color: $leisure; }
+// .bg-leisure { background-color: $leisure; }
+.bg-leisure { background: radial-gradient(#ffbe5cb7, #df311a); box-shadow: 0 0 30px rgba(50, 0, 0, 0.75) inset; }
 .bg-social { background-color: $social; }
 
-.text-leisure { color: #000000; }
+// .text-leisure { color: #2b1900; text-shadow: none; }
 
 
 // .bg-productivity { background: linear-gradient(to right, #1d1d1d, #1d1d1d 50%, $productivity); }
